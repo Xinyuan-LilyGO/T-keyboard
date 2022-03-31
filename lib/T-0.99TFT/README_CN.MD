@@ -1,0 +1,33 @@
+<h1 align = "center">🌟LILYGO T-0.99TFT🌟</h1>
+
+## **[English](./README.MD) | [中文](./README_CN.MD)**
+
+<h3 align = "left">快速开始:</h3>
+
+1. 安装 Arduino IDE  [Arduino website](http://www.arduino.cc/en/main/software).
+2. 打开Arduino，打开“文件” ->“首选项”，附加开发板管理器的url添加: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json 
+3. 选择“工具” -> 开发板选择 -> 
+4. 复制'lib'下的文件到'~Arduino/libraries'
+5. 在TFT_GC9D01N.h 中定义引脚和选择显示方向
+#define LANDSCAPE 1   //Horizontal screen
+//#define PORTRAIT 2
+
+#define TFT_MISO  -1
+#define TFT_MOSI  10
+#define TFT_SCLK  20
+#define TFT_CS    -1
+#define TFT_DC    2 
+#define TFT_RST   -1
+#define TFT_BL    8
+
+
+<h3 align = "left">Product 📷:</h3>
+
+|  Product  |                                                     Product  Link                                                     |
+| :-------: | :-------------------------------------------------------------------------------------------------------------------: |
+| T-0.99TFT | [淘宝](https://item.taobao.com/item.htm?spm=a213gs.success.result.1.936e7a86vB6iht&id=668735936867&qq-pf-to=pcqq.c2c) |
+
+## Pinout
+
+![](image/T-0.99TFT_CN.jpg)
+
