@@ -1,6 +1,6 @@
-<h1 align = "center">🌟LILYGO T-OI-PLUS🌟</h1>
+<h1 align = "center">🌟LILYGO T-keyboard🌟</h1>
 
 [Flash Download Tool](https://www.espressif.com/en/support/download/other-tools)
 
-![](../image/)
+![](../image/Flash_Download.png)
 
