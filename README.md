@@ -20,13 +20,17 @@
 
 <h3 align = "left">Product 📷:</h3>
 
-|  Product   | Product  Link  |
-| :--------: | :------------: |
-| T-keyboard | [AliExpress]() |
+|  Product   |                           Product  Link                            |
+| :--------: | :----------------------------------------------------------------: |
+| T-keyboard | [AliExpress](https://pt.aliexpress.com/item/1005004182998265.html) |
+
+## Matters need attention 
+1. Do not set the screen backlight to too high, which may cause overexposure
+
 
 ## Pinout
 
-![](image/)
+![](image/T-Keyboard.jpg)
 
 
 

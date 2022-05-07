@@ -17,7 +17,10 @@
 
 |    Product     | Product  Link |
 | :------------: | :-----------: |
-| [T-keyboard]() |     []()      |
+| [T-keyboard]() |               |
+
+## 注意事项
+1. 屏幕背光不建议调太亮，会导致过曝
 
 ## Pinout
-![](image/)
+![](image/T-Keyboard.jpg)
