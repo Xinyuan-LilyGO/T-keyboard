@@ -35,7 +35,7 @@ bool keyborad_BL_state = true;
 bool display_connected = true;  //The bluetooth connection is displayed on the screen
 unsigned long previousMillis_1 = 0; //Millisecond time record
 unsigned long previousMillis_2 = 0; //Millisecond time record
-const long backlight_off_time = 2000;       //Turn off the screen backlight
+const long backlight_off_time = 20000;       //Turn off the screen backlight
 const long display_Wait_blue_time = 2000;       //The screen shows waiting for bluetooth connection
 
 void readMatrix();
@@ -149,6 +149,7 @@ void setup()
 
 
     TFT_099.begin();
+    TFT_099.backlight(50);
     TFT_099.DispColor(0, 0, TFT_WIDTH, TFT_HEIGHT, BLACK);
     TFT_099.DrawImage(0, 0, 40, 160, liligo_logo);
     delay(2000);
@@ -186,7 +187,7 @@ void loop()
         }
 
         if (display_connected) {
-            TFT_099.backlight(100);
+            TFT_099.backlight(50);
             TFT_099.DispStr("Bluetooth connected", 0, 2, WHITE, BLACK);
             display_connected = false;
         }
@@ -317,7 +318,7 @@ void printMatrix()
                     TFT_099.DispColor(0, 0, TFT_HIGH, TFT_WIDE, BLACK);
 
                 }
-                TFT_099.backlight(100);
+                TFT_099.backlight(50);
                 previousMillis_1 = millis();
 
             }
