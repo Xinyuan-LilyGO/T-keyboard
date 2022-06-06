@@ -394,13 +394,17 @@ int TFT_GC9D01N_Class::begin()
 
     ledcSetup(1, 1000, 10);
     ledcAttachPin(TFT_BL, 1);
-    ledcWrite(1, 220);
+    ledcWrite(1, 0);
 
-    // digitalWrite(TFT_BL, HIGH); //开启背光
     delay(100);
     SPI.begin(TFT_SCLK, TFT_MISO, TFT_MOSI, TFT_CS);
 
-    lcd_init();
+    int i = 2;
+    while (i--) {
+        lcd_init();
+        delay(200); /* code */
+    }
+    ledcWrite(1, 220);//开启背光
 
     return 1;
 
