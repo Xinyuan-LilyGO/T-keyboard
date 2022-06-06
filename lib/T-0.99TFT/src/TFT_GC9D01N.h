@@ -6,12 +6,12 @@
 #include <string.h>
 #include <SPI.h>
 
-#define TFT_WIDTH  40
-#define TFT_HEIGHT 160
-#define CHAR_FONT_W8_H16  //typeface
-
 #define LANDSCAPE 1   //Horizontal screen
 //#define PORTRAIT 2
+#define CHAR_FONT_W8_H16  //typeface
+
+#define TFT_WIDTH  40
+#define TFT_HEIGHT 160
 
 #define TFT_MISO  -1
 #define TFT_MOSI  10//21
@@ -40,6 +40,8 @@
 #define GRAY75 0x39E7
 #define GRAY50 0x7BEF
 #define GRAY25 0xADB5
+
+
 
 #ifdef  CHAR_FONT_W8_H16
 #define  FONT_W  8

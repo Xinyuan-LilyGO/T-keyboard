@@ -9,6 +9,7 @@ void setup()
 
     Serial.println("setup ");
     TFT_099.begin();
+    TFT_099.backlight(50);
     TFT_099.DispColor(0, 0, TFT_WIDTH, TFT_HEIGHT, BLACK);
     delay(100);
 

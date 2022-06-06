@@ -2,13 +2,10 @@
 
 ## **[English](./README.MD) | [中文](./README_CN.MD)**
 
-<h3 align = "left">快速开始:</h3>
+<h3 align = "left">T-0.99TFT 库:</h3>
 
-1. 安装 Arduino IDE  [Arduino website](http://www.arduino.cc/en/main/software).
-2. 打开Arduino，打开“文件” ->“首选项”，附加开发板管理器的url添加: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json 
-3. 选择“工具” -> 开发板选择 -> 
-4. 复制'lib'下的文件到'~Arduino/libraries'
-5. 在TFT_GC9D01N.h 中定义引脚和选择显示方向
+1. Arduino 库， 添加到'~ Arduino/libraries'  目录下.
+2. 在TFT_GC9D01N.h 中定义引脚和选择显示方向
 
 默认配置
 |   PIN    |       |

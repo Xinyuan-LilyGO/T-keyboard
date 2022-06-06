@@ -33,9 +33,9 @@ void TFT_GC9D01N_Class::writecommand(uint8_t c)
 {
     begin_tft_write();
 
-    DC_C;
+    DC_C;       //高电平1为数据
 
-    SPI.transfer(c);
+    SPI.transfer(c);//tft_Write_8(c);
 
     DC_D;
 
@@ -392,7 +392,11 @@ int TFT_GC9D01N_Class::begin()
     pinMode(TFT_CS, OUTPUT);
     pinMode(TFT_RST, OUTPUT);
 
-    digitalWrite(TFT_BL, LOW); //开启背光
+    ledcSetup(1, 1000, 10);
+    ledcAttachPin(TFT_BL, 1);
+    ledcWrite(1, 220);
+
+    // digitalWrite(TFT_BL, HIGH); //开启背光
     delay(100);
     SPI.begin(TFT_SCLK, TFT_MISO, TFT_MOSI, TFT_CS);
 
@@ -404,7 +408,7 @@ int TFT_GC9D01N_Class::begin()
 
 void TFT_GC9D01N_Class::backlight(uint8_t state)
 {
-    digitalWrite(TFT_BL, state);
+    ledcWrite(1, state);// digitalWrite(TFT_BL, state);
 }
 
 /**
@@ -451,7 +455,7 @@ void TFT_GC9D01N_Class::DrawImage(unsigned int Xstart, unsigned int Ystart, unsi
     unsigned int Xend = Xstart + w;
     unsigned int Yend = Ystart + h;
 
-    BlockWrite(Xstart, Xend - 1, Ystart, Yend /*- 1*/);
+    BlockWrite(Xstart, Xend - 1, Ystart, Yend - 1);
     uint32_t len = w * h;
 
 
