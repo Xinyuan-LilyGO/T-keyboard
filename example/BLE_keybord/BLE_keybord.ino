@@ -33,6 +33,8 @@ int OffsetX = 0;
 uint16_t flow_i = 0;
 bool keyborad_BL_state = true;
 bool display_connected = true;  //The bluetooth connection is displayed on the screen
+bool case_locking = false;
+bool alt_active = false;
 unsigned long previousMillis_1 = 0; //Millisecond time record
 unsigned long previousMillis_2 = 0; //Millisecond time record
 const long backlight_off_time = 20000;       //Turn off the screen backlight
@@ -44,6 +46,7 @@ bool keyActive(int colIndex, int rowIndex);
 bool isPrintableKey(int colIndex, int rowIndex);
 void printMatrix();
 void set_keyborad_BL(bool state);
+void clear_sccreen();
 
 void setup()
 {
@@ -170,14 +173,18 @@ void setup()
 }
 
 
-
 void loop()
 {
-
-    if (keyPressed(2, 3)) {
+    if (alt_active && keyPressed(3, 4)) {//alt+b   Change keyboard backlight status
+        alt_active = false;
         TFT_099.DispColor(0, 0, TFT_HIGH, TFT_WIDE, BLACK);
         keyborad_BL_state = !keyborad_BL_state;
         set_keyborad_BL(keyborad_BL_state);
+        clear_sccreen();
+    }
+
+    if (keyPressed(2, 3)) {  //Right Shit  ,Toggle case locking
+        case_locking = !case_locking;
     }
 
     if (bleKeyboard.isConnected()) {
@@ -197,11 +204,11 @@ void loop()
 
         // key 3,3 is the enter key
         if (keyPressed(3, 3)) {
-            OffsetX = 0;
-            TFT_099.DispColor(0, 0, TFT_WIDTH, TFT_HEIGHT, BLACK);
+            clear_sccreen();
             Serial.println();
             bleKeyboard.println();
         }
+        //BACKSPACE
         if (keyPressed(4, 3)) {
             if (OffsetX < 8) {
                 OffsetX = 0;
@@ -212,6 +219,16 @@ void loop()
             TFT_099.DispColor(0, OffsetX, TFT_HIGH, TFT_WIDE, BLACK);
             bleKeyboard.press(KEY_BACKSPACE);
         }
+        //SHIFT
+        if (keyPressed(1, 6)) {
+            bleKeyboard.press(KEY_RIGHT_SHIFT);
+        }
+        //alt+left shit, trigger ctrl+shift(Switch the input method)
+        if (keyActive(0, 4) && keyPressed(1, 6)) {
+            bleKeyboard.press(KEY_RIGHT_CTRL);
+            bleKeyboard.press(KEY_RIGHT_SHIFT);
+        }
+
         bleKeyboard.releaseAll();
 
     } else {
@@ -231,9 +248,16 @@ void set_keyborad_BL(bool state)
     digitalWrite(keyborad_BL_PIN, state);
 }
 
+void clear_sccreen()
+{
+    OffsetX = 0;
+    TFT_099.DispColor(0, 0, TFT_WIDTH, TFT_HEIGHT, BLACK);
+}
 
 void readMatrix()
 {
+
+
     int delayTime = 0;
     // iterate the columns
     for (int colIndex = 0; colIndex < colCount; colIndex++) {
@@ -266,7 +290,9 @@ void readMatrix()
 
     if (keyPressed(0, 2)) {
         symbolSelected = true;
+        // symbolSelected = !symbolSelected;
     }
+
 }
 
 bool keyPressed(int colIndex, int rowIndex)
@@ -301,10 +327,17 @@ void printMatrix()
                     toPrint = String(keyboard[colIndex][rowIndex]);
                 }
 
+                if (keyActive(0, 4)) {
+                    alt_active = true;
+                    keys[0][4] = false;
+                    return;
+                }
                 // keys 1,6 and 2,3 are Shift keys, so we want to upper case
-                if (keyActive(1, 6) || keyActive(2, 3)) {
+                if (case_locking || keyActive(1, 6)) {
                     toPrint.toUpperCase();
                 }
+
+
                 TFT_099.DispColor(0, OffsetX, TFT_HIGH, TFT_WIDE, BLACK);
                 char c[2];
                 strcpy(c, toPrint.c_str());

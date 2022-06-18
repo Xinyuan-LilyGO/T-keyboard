@@ -2,6 +2,18 @@
 
 ## **English | [中文](./README_CN.MD)**
 
+**Default some custom functions**
+
+| keyboard input |                                   Trigger                                    |
+| :------------: | :--------------------------------------------------------------------------: |
+|   Left shit    |                                    Shift                                     |
+|   Right shit   |                             Toggle case locking                              |
+|      sym       |        Enter numbers and characters (only triggered once, not locked)        |
+| alt+left shit  |                     ctrl+shift(Switch the input method)                      |
+|     alt+b      |                       Change keyboard backlight status                       |
+|      ...       | More custom features can be modified source code implementation, or feedback |
+
+
 
 
 <h3 align = "left">Quick start:</h3>
