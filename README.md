@@ -2,7 +2,7 @@
 
 ## **English | [中文](./README_CN.MD)**
 
-**Default some custom functions**
+<h3 align = "left">Default some custom functions:</h3>
 
 | keyboard input |                                   Trigger                                    |
 | :------------: | :--------------------------------------------------------------------------: |
