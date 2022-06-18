@@ -28,8 +28,6 @@
      - [ESP32-BLE-Keyboard](https://github.com/T-vK/ESP32-BLE-Keyboard/tree/0.3.0)
      - [T-0.99TFT](https://github.com/Xinyuan-LilyGO/T-0.99TFT)
 
-
-
 **USE PlatformIO**
 
 1. Install[VSCODE](https://code.visualstudio.com/)and[Python](https://www.python.org/)

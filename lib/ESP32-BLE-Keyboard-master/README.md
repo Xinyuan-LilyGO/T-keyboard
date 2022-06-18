@@ -58,13 +58,18 @@ void loop() {
     bleKeyboard.write(KEY_MEDIA_PLAY_PAUSE);
 
     delay(1000);
-
-    Serial.println("Sending Ctrl+Alt+Delete...");
+    
+   //
+   // Below is an example of pressing multiple keyboard modifiers 
+   // which by default is commented out. 
+   // 
+   /* Serial.println("Sending Ctrl+Alt+Delete...");
     bleKeyboard.press(KEY_LEFT_CTRL);
     bleKeyboard.press(KEY_LEFT_ALT);
     bleKeyboard.press(KEY_DELETE);
     delay(100);
     bleKeyboard.releaseAll();
+    */
 
   }
   Serial.println("Waiting 5 seconds...");
@@ -132,20 +137,21 @@ Flash: [====      ]  44.2% (used 579158 bytes from 1310720 bytes)
 | `ESP.getFreeHeap()`   | 143.572 | 260.764 | **+ 117.192** |
 | `ESP.getSketchSize()` | 994.224 | 579.264 | **- 414.960** |
 
-### How to activate NimBLE mode?
+## How to activate NimBLE mode?
 
-ArduinoIDE: Before including the library, insert the line `#define USE_NIMBLE`
+### ArduinoIDE: 
+Uncomment the first line in BleKeyboard.h
 ```C++
 #define USE_NIMBLE
-#include <BleKeyboard.h>
 ```
 
-PlatformIO: Change your `platformio.ini` to the following settings
+### PlatformIO:
+Change your `platformio.ini` to the following settings
 ```ini
 lib_deps = 
   NimBLE-Arduino
 
-build-flags = 
+build_flags = 
   -D USE_NIMBLE
 ```
 
