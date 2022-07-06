@@ -168,6 +168,10 @@ void setup()
         }
     }
 
+        TFT_099.DispColor(0, 0, TFT_WIDTH, TFT_HEIGHT, BLACK);
+    TFT_099.DispStr("version 1.0.0", 0, 2, WHITE, BLACK);
+    delay(3000);
+
     TFT_099.DispColor(0, 0, TFT_WIDTH, TFT_HEIGHT, BLACK);
     TFT_099.DispStr("Wait bluetooth ......", 0, 2, WHITE, BLACK);
 }
