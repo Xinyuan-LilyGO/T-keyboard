@@ -42,11 +42,32 @@
 | :--------: | :----------------------------------------------------------------: |
 | T-keyboard | [AliExpress](https://pt.aliexpress.com/item/1005004182998265.html) |
 
-## Matters need attention 
+## Matters need attention
 1. Do not set the screen backlight to too high, which may cause overexposure
 
 
 ## Pinout
+
+|  Pins  |     Component    |  Description  |
+| :----: | :--------------: | :-----------: |
+| 2      | TFT LCD          | D/C           |
+| 8      | TFT LCD          | Backlight     |
+| 10     | TFT LCD          | MOSI          |
+| 20     | TFT LCD / Serial | SCLK / RX     |
+| 21     | Serial           | TX            |
+| 1      | Keyboard         | Column 1      |
+| 4      | Keyboard         | Column 2      |
+| 5      | Keyboard         | Column 3      |
+| 19     | Keyboard         | Column 4      |
+| 13     | Keyboard         | Column 5      |
+| 0      | Keyboard         | Row 1         |
+| 3      | Keyboard         | Row 2         |
+| 18     | Keyboard         | Row 3         |
+| 12     | Keyboard         | Row 4         |
+| 11     | Keyboard         | Row 5         |
+| 6      | Keyboard         | Row 6         |
+| 7      | Keyboard         | Row 7         |
+| 9      | Keyboard         | Backlight     |
 
 ![](image/T-Keyboard.jpg)
 
