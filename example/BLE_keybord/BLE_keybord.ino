@@ -187,7 +187,7 @@ void loop()
         clear_sccreen();
     }
 
-    if (keyPressed(2, 3)) {  //Right Shit  ,Toggle case locking
+    if (keyActive(0, 4) && keyPressed(2, 3)) {  //Alt + Right Shit, Toggle case locking
         case_locking = !case_locking;
     }
 
@@ -337,7 +337,7 @@ void printMatrix()
                     return;
                 }
                 // keys 1,6 and 2,3 are Shift keys, so we want to upper case
-                if (case_locking || keyActive(1, 6)) {
+                if (case_locking || keyActive(1, 6) || keyActive(2, 3)) { // Left or right shift
                     toPrint.toUpperCase();
                 }
 
