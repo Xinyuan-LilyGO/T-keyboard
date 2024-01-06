@@ -341,6 +341,10 @@ void printMatrix()
                     toPrint.toUpperCase();
                 }
 
+                if (OffsetX >= TFT_WIDE) {
+                    OffsetX = 0;
+                    TFT_099.DispColor(0, 0, TFT_HIGH, TFT_WIDE, BLACK);
+                }
 
                 TFT_099.DispColor(0, OffsetX, TFT_HIGH, TFT_WIDE, BLACK);
                 char c[2];
@@ -350,11 +354,7 @@ void printMatrix()
                 Serial.print(toPrint);
                 bleKeyboard.print(toPrint);
                 OffsetX = OffsetX + GAP;
-                if (OffsetX > 160) {
-                    OffsetX = 0;
-                    TFT_099.DispColor(0, 0, TFT_HIGH, TFT_WIDE, BLACK);
 
-                }
                 TFT_099.backlight(50);
                 previousMillis_1 = millis();
 
